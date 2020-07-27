@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="8dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivMoviePoster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:src="@drawable/poster_w154"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <TextView
+        android:id="@+id/tvMovieName"
+        tools:text="GreyHound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/ivMoviePoster"/>
+
+    <TextView
+        android:id="@+id/tvVoteCount"
+        android:layout_below="@id/tvMovieName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="4500"/>
+
+    <RatingBar
+        android:id="@+id/rbMovieRating"
+        android:layout_below="@id/tvMovieName"
+        style="?attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvVoteCount"
+        android:layout_marginLeft="8dp"/>
+
+</RelativeLayout>
