@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         app:layout_constraintStart_toStartOf="parent"
-        tools:src="@drawable/poster_w154"
-        tools:layout_editor_absoluteY="2dp" />
+        tools:src="@drawable/poster_w154"/>
 
     <TextView
         android:id="@+id/tvMovieName"
