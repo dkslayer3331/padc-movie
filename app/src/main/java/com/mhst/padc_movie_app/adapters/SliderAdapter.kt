@@ -21,9 +21,6 @@ class SliderAdapter : SliderViewAdapter<SliderViewHolder>() {
         notifyDataSetChanged()
     }
 
-
-
-
     class SliderViewHolder(itemView : View) : SliderViewAdapter.ViewHolder(itemView) {
         val ivSlider = itemView.ivSlider
     }
