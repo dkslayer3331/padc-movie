@@ -3,6 +3,8 @@ package com.mhst.padc_movie_app.activities
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
+import androidx.core.text.HtmlCompat
 import com.mhst.padc_movie_app.R
 import com.mhst.padc_movie_app.adapters.SliderAdapter
 import com.mhst.padc_movie_app.utils.sliderUrlList
@@ -28,6 +30,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        tvSeeMore.text =HtmlCompat.fromHtml(getString(R.string.see_more),HtmlCompat.FROM_HTML_MODE_LEGACY)
+
         setupSlider()
     }
 }
