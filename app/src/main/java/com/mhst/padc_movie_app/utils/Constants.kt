@@ -15,3 +15,9 @@ val sliderUrlList = mutableListOf("$SLIDER_BASE_URL/xXBnM6uSTk6qqCf0SRZKXcga9Ba.
     "$SLIDER_BASE_URL/m0ObOaJBerZ3Unc74l471ar8Iiy.jpg",
     "$SLIDER_BASE_URL/6kJKTKnnPbpyeqCgodqgjkI9aMk.jpg")
 
+const val BASE_API_URL = "https://api.themoviedb.org/3/movie"
+
+const val GET_POPULAR_MOVIES = "/popular"
+
+const val API_KEY = "a7fc563ba6989aec1e19d62d2d1985c9"
+
