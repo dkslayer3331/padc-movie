@@ -37,7 +37,6 @@
         android:id="@+id/rbMovieRating"
         android:layout_below="@id/tvMovieName"
         style="?attr/ratingBarStyleSmall"
-        android:outlineSpotShadowColor=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/tvVoteCount"
