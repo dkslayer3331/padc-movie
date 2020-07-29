@@ -1,6 +1,5 @@
-package com.mhst.padc_movie_app.models.vos
+package com.mhst.padc_movie_app.data.vos
 
-import com.bumptech.glide.load.model.FileLoader
 import com.google.gson.annotations.SerializedName
 
 data class MovieVO(

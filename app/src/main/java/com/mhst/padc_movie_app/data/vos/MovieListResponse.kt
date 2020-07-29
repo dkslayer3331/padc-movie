@@ -1,4 +1,4 @@
-package com.mhst.padc_movie_app.models.vos
+package com.mhst.padc_movie_app.data.vos
 
 import com.google.gson.annotations.SerializedName
 
