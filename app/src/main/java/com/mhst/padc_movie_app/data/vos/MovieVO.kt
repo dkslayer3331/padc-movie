@@ -1,7 +1,13 @@
 package com.mhst.padc_movie_app.data.vos
 
+import androidx.room.Entity
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
+import com.mhst.padc_movie_app.persistance.typeconverters.MovieTypeConverter
 
+@Entity(tableName = "movies")
+@TypeConverters(MovieTypeConverter::class)
 data class MovieVO(
     @SerializedName("popularity")
     val popularity : Float,
