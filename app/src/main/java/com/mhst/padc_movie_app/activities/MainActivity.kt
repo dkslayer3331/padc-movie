@@ -1,8 +1,9 @@
-package com.mhst.padc_movie_app
+package com.mhst.padc_movie_app.activities
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mhst.padc_movie_app.R
 import com.mhst.padc_movie_app.adapters.SliderAdapter
 import com.mhst.padc_movie_app.utils.sliderUrlList
 import com.smarteist.autoimageslider.SliderAnimations
