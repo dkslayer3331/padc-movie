@@ -1,6 +1,7 @@
-package com.mhst.padc_movie_app.data.vos
+package com.mhst.padc_movie_app.network.responses
 
 import com.google.gson.annotations.SerializedName
+import com.mhst.padc_movie_app.data.vos.MovieVO
 
 data class MovieListResponse(
     @SerializedName("page")

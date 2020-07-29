@@ -1,6 +1,6 @@
 package com.mhst.padc_movie_app.network
 
-import com.mhst.padc_movie_app.data.vos.MovieListResponse
+import com.mhst.padc_movie_app.network.responses.MovieListResponse
 import com.mhst.padc_movie_app.utils.API_KEY
 import com.mhst.padc_movie_app.utils.GET_POPULAR_MOVIES
 import io.reactivex.Observable

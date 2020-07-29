@@ -3,6 +3,7 @@ package com.mhst.padc_movie_app.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.mhst.padc_movie_app.data.vos.GenreVo
 
 /**
  * Created by Moe Htet on 29,July,2020
@@ -10,10 +11,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 class GenrePagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
 
-    var list : MutableList<String>? = null
+    var list : MutableList<GenreVo>? = null
 
-    fun setGenreList(list : List<String>){
-
+    fun setGenreList(genreList : MutableList<GenreVo>){
+        list = genreList
     }
 
     override fun getItemCount(): Int {
@@ -21,7 +22,7 @@ class GenrePagerAdapter(fragmentActivity: FragmentActivity) :
     }
 
     override fun createFragment(position: Int): Fragment {
-        TODO("Not yet implemented")
+
     }
 
 
