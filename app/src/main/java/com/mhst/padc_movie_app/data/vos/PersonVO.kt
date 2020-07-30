@@ -5,13 +5,15 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 /**
- * Created by Moe Htet on 29,July,2020
+ * Created by Moe Htet on 31,July,2020
  */
-@Entity(tableName = "genres")
-data class GenreVo(
+@Entity(tableName = "persons")
+data class PersonVO(
     @PrimaryKey
     @SerializedName("id")
-    val id : Int,
+    val id : Long,
     @SerializedName("name")
-    val name : String
+    val name : String,
+    @SerializedName("profile_path")
+    val profilePath : String
 )
