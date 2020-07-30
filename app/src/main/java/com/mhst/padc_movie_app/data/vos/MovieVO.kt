@@ -4,11 +4,14 @@ import androidx.room.Entity
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
+import com.mhst.padc_movie_app.persistance.typeconverters.GenreTypeConverter
 import com.mhst.padc_movie_app.persistance.typeconverters.MovieTypeConverter
 
 @Entity(tableName = "movies")
-@TypeConverters(MovieTypeConverter::class)
+@TypeConverters(MovieTypeConverter::class,GenreTypeConverter::class)
 data class MovieVO(
+    @SerializedName("id")
+    val id : Long,
     @SerializedName("popularity")
     val popularity : Float,
     @SerializedName("vote_count")

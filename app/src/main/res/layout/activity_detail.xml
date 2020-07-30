@@ -71,16 +71,18 @@
             app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/imageView5" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.google.android.material.chip.ChipGroup
             android:id="@+id/rvMovieGenres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:itemSpacing="4dp"
+
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/textView4" />
+            app:layout_constraintStart_toEndOf="@id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/textView4">
+
+        </com.google.android.material.chip.ChipGroup>
 
         <ImageView
             android:id="@+id/imageView6"
@@ -188,16 +190,54 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <TextView
+        android:id="@+id/tvAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColor="@android:color/background_light"
+        android:text="ABOUT FILM"/>
+
+    <include android:id="@+id/vpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/lable_and_text_viewpod"/>
+
+    <include android:id="@+id/vpType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/lable_and_text_viewpod"/>
+
+    <include android:id="@+id/vpProduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/lable_and_text_viewpod"/>
+
+    <include android:id="@+id/vpPremire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/lable_and_text_viewpod"/>
+
+    <include android:id="@+id/vpDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/lable_and_text_viewpod"
+        android:layout_marginBottom="16dp"/>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/grey800">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="CREATORS"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
 </LinearLayout>
 </ScrollView>
