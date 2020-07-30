@@ -25,3 +25,5 @@ const val GET_ALL_GENRES = "/genre/movie/list"
 
 const val API_KEY = "a7fc563ba6989aec1e19d62d2d1985c9"
 
+const val NO_INTERNET_CONNECTION = "No Internet Connection"
+
