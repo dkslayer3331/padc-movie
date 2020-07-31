@@ -16,7 +16,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/ivDetailBackDrop"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:adjustViewBounds="true"
@@ -50,7 +50,7 @@
             app:srcCompat="@drawable/ic_baseline_access_time_24" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tvDuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -68,7 +68,7 @@
             android:text="Fantastic Beasts"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintBottom_toTopOf="@+id/tvDuration"
             app:layout_constraintStart_toStartOf="@+id/imageView5" />
 
         <com.google.android.material.chip.ChipGroup
@@ -78,9 +78,9 @@
             android:layout_marginStart="16dp"
             app:itemSpacing="4dp"
 
-            app:layout_constraintBottom_toBottomOf="@+id/textView4"
-            app:layout_constraintStart_toEndOf="@id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/textView4">
+            app:layout_constraintBottom_toBottomOf="@+id/tvDuration"
+            app:layout_constraintStart_toEndOf="@id/tvDuration"
+            app:layout_constraintTop_toTopOf="@+id/tvDuration">
 
         </com.google.android.material.chip.ChipGroup>
 
@@ -100,11 +100,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/tvSomething"
-            app:layout_constraintTop_toTopOf="@+id/tvSomething" />
+            app:layout_constraintEnd_toStartOf="@+id/tvAvgVoteCount"
+            app:layout_constraintTop_toTopOf="@+id/tvAvgVoteCount" />
 
         <TextView
-            android:id="@+id/tvSomething"
+            android:id="@+id/tvAvgVoteCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSomething"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAvgVoteCount"
             app:layout_constraintStart_toStartOf="@+id/ratingBar"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
@@ -137,6 +137,7 @@
         android:textColor="@android:color/tertiary_text_light" />
 
     <TextView
+        android:id="@+id/tvDesc"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:textColor="@android:color/white"
@@ -200,27 +201,27 @@
         android:text="ABOUT FILM"/>
 
     <include android:id="@+id/vpTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/lable_and_text_viewpod"/>
 
     <include android:id="@+id/vpType"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/lable_and_text_viewpod"/>
 
     <include android:id="@+id/vpProduction"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/lable_and_text_viewpod"/>
 
     <include android:id="@+id/vpPremire"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/lable_and_text_viewpod"/>
 
     <include android:id="@+id/vpDesc"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/lable_and_text_viewpod"
         android:layout_marginBottom="16dp"/>
@@ -250,6 +251,7 @@
             android:layout_height="wrap_content"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDetailCrew"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"

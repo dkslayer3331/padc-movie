@@ -21,7 +21,7 @@ interface MovieApi {
     @GET(GET_ALL_GENRES)
     fun getAllGenres(@Query("api_key")apiKey: String = API_KEY) : Observable<GenreListResponse>
 
-    @GET("${MOVIE_DETAIL}/MOVIE_ID")
+    @GET("movie/{MOVIE_ID}")
     fun getMovieDetail(
         @Path("MOVIE_ID") movieID: Int,
         @Query("api_key") apiKey: String = API_KEY,

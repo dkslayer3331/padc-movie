@@ -94,11 +94,11 @@ class MainActivity : AppCompatActivity(),MainView {
        // setupTabLayout()
     }
 
-    fun setupSwipeRefresh(){
-//        swipeRefreshLayout.setOnRefreshListener {
-//            mPresenter.onSwipeRefresh(this)
-//        }
-    }
+//    fun setupSwipeRefresh(){
+////        swipeRefreshLayout.setOnRefreshListener {
+////            mPresenter.onSwipeRefresh(this)
+////        }
+//    }
 
     override fun displayPopularMovies(movies: List<MovieVO>) {
         movieAdapter.setNewData(movies.toMutableList())
