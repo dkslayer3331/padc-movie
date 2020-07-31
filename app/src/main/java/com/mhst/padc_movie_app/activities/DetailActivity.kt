@@ -1,5 +1,7 @@
 package com.mhst.padc_movie_app.activities
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.chip.Chip
@@ -33,5 +35,12 @@ class DetailActivity : AppCompatActivity() {
 
         bindDummyChips()
 
+    }
+
+
+    companion object{
+        fun onNewIntent(context: Context) : Intent{
+            return Intent(context,DetailActivity::class.java)
+        }
     }
 }
