@@ -29,6 +29,19 @@ object MovieModelImpl : MovieModel,BaseModel() {
             },{
                 onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
             })
+        mApi.getPopularPerson(API_KEY)
+            .map { it.result }
+            .flatMap{
+                mDb.personDao().deleteInsert(it)
+                return@flatMap Observable.just(it)
+            }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+
+            },{
+                onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
+            })
     }
 
     override fun getAllPersons(onError: (String) -> Unit): LiveData<List<PersonVO>> {

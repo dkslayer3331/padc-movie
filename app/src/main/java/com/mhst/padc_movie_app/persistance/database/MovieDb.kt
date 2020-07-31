@@ -5,10 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.mhst.padc_movie_app.data.vos.MovieVO
+import com.mhst.padc_movie_app.data.vos.PersonVO
 import com.mhst.padc_movie_app.persistance.daos.MovieDao
 import com.mhst.padc_movie_app.persistance.daos.PersonDao
 
-@Database(entities = [MovieVO::class], version = 1, exportSchema = false)
+@Database(entities = [MovieVO::class,PersonVO::class], version = 1, exportSchema = false)
     abstract class MovieDb : RoomDatabase() {
         companion object {
             val DB_NAME = "PADC_MOVIES.DB"

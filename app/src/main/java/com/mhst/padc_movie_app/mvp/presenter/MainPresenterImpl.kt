@@ -27,18 +27,22 @@ class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
     }
 
     private fun getAllDataForRvs(lifecycleOwner: LifecycleOwner){
-        mView?.enableSwipeRefresh()
+       // mView?.enableSwipeRefresh()
+
+        model.getAllPersons {
+            Log.d("errPersonCall",it)
+        }.observe(lifecycleOwner, Observer {
+            Log.d("personInPresenter",it.size.toString())
+            mView?.displayActors(it)
+        })
+
         model.getAllMovies {
-            mView?.disableSwipeRefresh()
+           // mView?.disableSwipeRefresh()
             Log.d("err",it)
         }.observe(lifecycleOwner, Observer {
             mView?.displayPopularMovies(it)
         })
-        model.getAllPersons {
-            Log.d("err",it)
-        }.observe(lifecycleOwner, Observer {
-            mView?.displayActors(it)
-        })
+
     }
 
 }
