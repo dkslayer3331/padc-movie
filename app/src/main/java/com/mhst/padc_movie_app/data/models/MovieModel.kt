@@ -7,6 +7,9 @@ import io.reactivex.Observable
 
 interface MovieModel  {
 
-    fun getMovies(onError : (String) -> Unit)
+    fun getAllMovies(onError: (String) -> Unit) : LiveData<List<MovieVO>>
+
+
+    fun getMoviesAndSaveToDb(onSuccess: () -> Unit,onError : (String) -> Unit)
 
 }

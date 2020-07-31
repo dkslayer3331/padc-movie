@@ -8,7 +8,7 @@ import com.mhst.padc_movie_app.data.vos.MovieVO
 interface MovieDao {
 
     @Query("select * from movies")
-    fun getAllPopularMovies() : LiveData<MovieVO>
+    fun getAllPopularMovies() : LiveData<List<MovieVO>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertMovies(movies : List<MovieVO>)

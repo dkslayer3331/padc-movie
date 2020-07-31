@@ -10,9 +10,11 @@ import io.reactivex.schedulers.Schedulers
 
 object MovieModelImpl : MovieModel,BaseModel() {
 
+    override fun getAllMovies(onError: (String) -> Unit): LiveData<List<MovieVO>> {
+        return mDb.movieDao().getAllPopularMovies()
+    }
 
-
-    override fun getMovies(onError: (String) -> Unit){
+    override fun getMoviesAndSaveToDb(onSuccess: () -> Unit, onError: (String) -> Unit) {
         mApi.getPopularMovies(API_KEY)
             .map { it.movies }
             .flatMap{
@@ -26,6 +28,6 @@ object MovieModelImpl : MovieModel,BaseModel() {
             },{
                 onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
             })
-
     }
+
 }
