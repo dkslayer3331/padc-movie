@@ -1,6 +1,7 @@
 package com.mhst.padc_movie_app.data.models
 
 import androidx.lifecycle.LiveData
+import com.mhst.padc_movie_app.data.vos.MovieDetailVO
 import com.mhst.padc_movie_app.data.vos.MovieVO
 import com.mhst.padc_movie_app.data.vos.PersonVO
 import com.mhst.padc_movie_app.utils.API_KEY
@@ -60,6 +61,15 @@ object MovieModelImpl : MovieModel,BaseModel() {
             .subscribe({
 
             },{
+                onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
+            })
+    }
+
+    override fun getMovieDetail(movieId: Int, onSuccess: (MovieDetailVO) -> Unit, onError: (String) -> Unit) {
+        mApi.getMovieDetail(movieId, API_KEY)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ onSuccess(it) },{
                 onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
             })
     }

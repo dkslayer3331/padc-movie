@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun navigateToMovieDetails(movieId: Int) {
-        startActivity(DetailActivity.onNewIntent(this))
+        startActivity(DetailActivity.onNewIntent(this,movieId))
     }
 
     override fun enableSwipeRefresh() {
