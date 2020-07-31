@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(),MainView {
     lateinit var actorAdapter: ActorAdapter
 
     private fun setupMovieAdapter(){
-        movieAdapter = MovieAdapter()
+        movieAdapter = MovieAdapter(mPresenter)
         rvPopularMovies.layoutManager = LinearLayoutManager(this).apply {
             orientation = LinearLayoutManager.HORIZONTAL
         }
