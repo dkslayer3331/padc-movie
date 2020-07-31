@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 abstract class BaseModel {
 
-    protected lateinit var mApi : MovieApi
+    protected var mApi : MovieApi
 
     protected lateinit var mDb : MovieDb
 

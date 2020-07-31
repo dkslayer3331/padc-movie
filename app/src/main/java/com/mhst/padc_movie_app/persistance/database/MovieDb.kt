@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.mhst.padc_movie_app.data.vos.MovieVO
 import com.mhst.padc_movie_app.persistance.daos.MovieDao
+import com.mhst.padc_movie_app.persistance.daos.PersonDao
 
 @Database(entities = [MovieVO::class], version = 1, exportSchema = false)
     abstract class MovieDb : RoomDatabase() {
@@ -29,4 +30,6 @@ import com.mhst.padc_movie_app.persistance.daos.MovieDao
         }
 
         abstract fun movieDao(): MovieDao
+
+        abstract fun personDao() : PersonDao
     }

@@ -2,6 +2,7 @@ package com.mhst.padc_movie_app.data.models
 
 import androidx.lifecycle.LiveData
 import com.mhst.padc_movie_app.data.vos.MovieVO
+import com.mhst.padc_movie_app.data.vos.PersonVO
 import com.mhst.padc_movie_app.utils.API_KEY
 import com.mhst.padc_movie_app.utils.NO_INTERNET_CONNECTION
 import io.reactivex.Observable
@@ -19,6 +20,26 @@ object MovieModelImpl : MovieModel,BaseModel() {
             .map { it.movies }
             .flatMap{
                 mDb.movieDao().deleteInsert(it)
+                return@flatMap Observable.just(it)
+            }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+
+            },{
+                onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
+            })
+    }
+
+    override fun getAllPersons(onError: (String) -> Unit): LiveData<List<PersonVO>> {
+        return mDb.personDao().getAllPerson()
+    }
+
+    override fun getPeopleAndSaveToDb(onSuccess: () -> Unit, onError: (String) -> Unit) {
+        mApi.getPopularPerson(API_KEY)
+            .map { it.result }
+            .flatMap{
+                mDb.personDao().deleteInsert(it)
                 return@flatMap Observable.just(it)
             }
             .subscribeOn(Schedulers.io())
