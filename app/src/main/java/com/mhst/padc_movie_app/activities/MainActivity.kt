@@ -44,20 +44,22 @@ class MainActivity : AppCompatActivity(),MainView {
 
     lateinit var movieAdapter: MovieAdapter
 
+    lateinit var imageSliderAdapter: ImageSliderAdapter
+
     private fun setUpPresenter() {
         mPresenter = ViewModelProviders.of(this).get(MainPresenterImpl::class.java)
         mPresenter.initPresenter(this)
     }
 
     private fun setupSlider(){
-        val adapter = ImageSliderAdapter(this)
-        viewpodSlider.binData(adapter)
-
+        viewpodSlider.binData(imageSliderAdapter)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        imageSliderAdapter = ImageSliderAdapter(this)
 
         viewpodSlider = vpSlider as ImageSliderViewpod
 
@@ -78,6 +80,7 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun displayPopularMovies(movies: List<MovieVO>) {
+        imageSliderAdapter.setData(movies.take(5))
        movieAdapter = MovieAdapter(mPresenter)
        viewpodPopularMovies.binData(movieAdapter,movies.toMutableList())
     }

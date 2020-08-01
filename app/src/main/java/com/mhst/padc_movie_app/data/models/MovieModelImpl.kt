@@ -2,10 +2,7 @@ package com.mhst.padc_movie_app.data.models
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.mhst.padc_movie_app.data.vos.GenreVo
-import com.mhst.padc_movie_app.data.vos.MovieDetailVO
-import com.mhst.padc_movie_app.data.vos.MovieVO
-import com.mhst.padc_movie_app.data.vos.PersonVO
+import com.mhst.padc_movie_app.data.vos.*
 import com.mhst.padc_movie_app.utils.API_KEY
 import com.mhst.padc_movie_app.utils.NO_INTERNET_CONNECTION
 import io.reactivex.Observable
@@ -91,6 +88,19 @@ object MovieModelImpl : MovieModel,BaseModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ onSuccess(it) },{
+                onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
+            })
+    }
+
+    override fun getVideo(
+        movieId: Int,
+        onSuccess: (video: VideoVO) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        mApi.getVideosById(movieId,API_KEY)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ onSuccess(it.videos[0]) },{
                 onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
             })
     }

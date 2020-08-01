@@ -2,10 +2,7 @@ package com.mhst.padc_movie_app.data.models
 
 import android.graphics.Movie
 import androidx.lifecycle.LiveData
-import com.mhst.padc_movie_app.data.vos.GenreVo
-import com.mhst.padc_movie_app.data.vos.MovieDetailVO
-import com.mhst.padc_movie_app.data.vos.MovieVO
-import com.mhst.padc_movie_app.data.vos.PersonVO
+import com.mhst.padc_movie_app.data.vos.*
 import io.reactivex.Observable
 
 interface MovieModel  {
@@ -23,6 +20,8 @@ interface MovieModel  {
     fun getGenresAndSaveToDb(onSuccess: () -> Unit,onError : (String) -> Unit)
 
     fun getMovieDetail(movieId : Int,onSuccess: (movie : MovieDetailVO) -> Unit,onError : (String) -> Unit)
+
+    fun getVideo(movieId: Int,onSuccess: (video : VideoVO)-> Unit, onError: (String) -> Unit)
 
     fun getMoviesByGenres(genreId : Int,onSuccess: (movies : List<MovieVO>) -> Unit,onError : (String) -> Unit)
 

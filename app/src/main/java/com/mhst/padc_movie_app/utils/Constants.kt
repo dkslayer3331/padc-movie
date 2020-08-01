@@ -33,3 +33,5 @@ const val NO_INTERNET_CONNECTION = "No Internet Connection"
 
 const val MOVIES_BY_GENRE = "discover/movie"
 
+val VIDEO_KEY_LIST = listOf("_Br5Sm6sf24","fjVonI2oVeM","4CJBuUwd0Os","Wpsqh73gB78")
+
