@@ -31,3 +31,5 @@ const val MOVIE_DETAIL = "movie"
 
 const val NO_INTERNET_CONNECTION = "No Internet Connection"
 
+const val MOVIES_BY_GENRE = "discover/movie"
+

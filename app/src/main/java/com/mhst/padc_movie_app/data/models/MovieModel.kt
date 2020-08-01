@@ -24,4 +24,6 @@ interface MovieModel  {
 
     fun getMovieDetail(movieId : Int,onSuccess: (movie : MovieDetailVO) -> Unit,onError : (String) -> Unit)
 
+    fun getMoviesByGenres(genreId : Int,onSuccess: (movies : List<MovieVO>) -> Unit,onError : (String) -> Unit)
+
 }

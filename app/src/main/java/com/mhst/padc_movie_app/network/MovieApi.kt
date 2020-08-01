@@ -27,4 +27,12 @@ interface MovieApi {
         @Query("api_key") apiKey: String = API_KEY,
         @Query("append_to_response") appendToResponse: String = "credits") : Observable<MovieDetailVO>
 
+    @GET(MOVIES_BY_GENRE)
+    fun getMoviesByGenre(
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("with_genres") genreId: Int
+    ) : Observable<MovieListResponse>
+
+
+
 }

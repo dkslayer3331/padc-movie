@@ -93,4 +93,20 @@ object MovieModelImpl : MovieModel,BaseModel() {
             })
     }
 
+    override fun getMoviesByGenres(
+        genreId: Int,
+        onSuccess: (movies: List<MovieVO>) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        mApi.getMoviesByGenre(API_KEY,genreId)
+            .map { it.movies }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                onSuccess(it)
+            },{
+                onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
+            })
+    }
+
 }
