@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mhst.padc_movie_app.views.viewpods.ImageSliderViewpod android:layout_width="match_parent"
+    android:layout_height="240dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpImageSlider"
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabForIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@android:color/transparent"
+        app:tabGravity="center"
+        android:layout_marginBottom="8dp"
+        app:tabBackground="@drawable/tab_selctor"
+        app:tabIndicatorHeight="0dp"/>
+
+</com.mhst.padc_movie_app.views.viewpods.ImageSliderViewpod>

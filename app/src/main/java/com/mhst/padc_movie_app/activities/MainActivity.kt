@@ -6,8 +6,10 @@ import android.os.Bundle
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.tabs.TabLayoutMediator
 import com.mhst.padc_movie_app.R
 import com.mhst.padc_movie_app.adapters.GenrePagerAdapter
+import com.mhst.padc_movie_app.adapters.ImageSliderAdapter
 import com.mhst.padc_movie_app.adapters.MovieAdapter
 import com.mhst.padc_movie_app.adapters.SliderAdapter
 import com.mhst.padc_movie_app.data.vos.GenreVo
@@ -18,6 +20,7 @@ import com.mhst.padc_movie_app.mvp.presenter.MainPresenterImpl
 import com.mhst.padc_movie_app.mvp.view.MainView
 import com.mhst.padc_movie_app.utils.sliderUrlList
 import com.mhst.padc_movie_app.views.viewpods.ActorsRecyclerViewpod
+import com.mhst.padc_movie_app.views.viewpods.ImageSliderViewpod
 import com.mhst.padc_movie_app.views.viewpods.PopularMoviesViewpod
 import com.mhst.padc_movie_app.views.viewpods.TabAndViewPagerViewpod
 import com.smarteist.autoimageslider.SliderAnimations
@@ -37,6 +40,8 @@ class MainActivity : AppCompatActivity(),MainView {
 
     lateinit var viewpodPopularMovies : PopularMoviesViewpod
 
+    lateinit var viewpodSlider : ImageSliderViewpod
+
     lateinit var movieAdapter: MovieAdapter
 
     private fun setUpPresenter() {
@@ -45,20 +50,16 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     private fun setupSlider(){
-        adapter = SliderAdapter()
-        adapter.setNewData(sliderUrlList)
-        posterSlider.apply {
-            startAutoCycle()
-            setSliderAdapter(adapter)
-            setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
-            indicatorSelectedColor = Color.YELLOW
-        }
+        val adapter = ImageSliderAdapter(this)
+        viewpodSlider.binData(adapter)
 
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        viewpodSlider = vpSlider as ImageSliderViewpod
 
         viewpagerPagerTabAndPager = vpTabAndPager as TabAndViewPagerViewpod
 

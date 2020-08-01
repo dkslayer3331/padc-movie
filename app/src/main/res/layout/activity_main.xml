@@ -56,20 +56,11 @@
                 android:background="@color/greyBackground"
                 android:orientation="vertical">
 
-                <com.smarteist.autoimageslider.SliderView
-                    android:id="@+id/posterSlider"
-                    android:layout_width="wrap_content"
-                    android:layout_height="240dp"
-                    app:sliderAnimationDuration="600"
-                    app:sliderAutoCycleDirection="back_and_forth"
-                    app:sliderAutoCycleEnabled="true"
-                    app:sliderIndicatorAnimationDuration="600"
-                    app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorRadius="2dp"
-                    app:sliderIndicatorSelectedColor="#5A5A5A"
-                    app:sliderIndicatorUnselectedColor="#FFF"
-                    app:sliderScrollTimeInSec="3"
-                    app:sliderStartAutoCycle="true" />
+               <include
+                   android:id="@+id/vpSlider"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   layout="@layout/viwepod_slidere"/>
 
                 <include
                     android:id="@+id/vpMoviesReclcyer"
