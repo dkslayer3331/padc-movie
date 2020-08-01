@@ -26,6 +26,10 @@ class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
         mView?.navigateToMovieDetails(id)
     }
 
+    override fun onTapFav(personId: Long, fav: Boolean) {
+        model.changeFavStatus(personId,fav,onSuccess = {})
+    }
+
     private fun getAllDataForRvs(lifecycleOwner: LifecycleOwner){
        // mView?.enableSwipeRefresh()
 

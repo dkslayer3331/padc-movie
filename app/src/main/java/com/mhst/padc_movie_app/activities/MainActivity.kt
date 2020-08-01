@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun displayActors(actorList: List<PersonVO>) {
-        viewpodActorsRecycler.bindActors(actorList)
+        viewpodActorsRecycler.bindActors(actorList,mPresenter)
     }
 
     override fun navigateToMovieDetails(movieId: Int) {

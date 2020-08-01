@@ -27,12 +27,6 @@ class VideoPlayerActivity : AppCompatActivity(),VideoView {
 
      var movieId : Int = 0
 
-    lateinit var player : SimpleExoPlayer
-
-    private val playWhenReady = true
-    private val currentWindow = 0
-    private val playbackPosition: Long = 0
-
     fun setupPresenter(){
         mPresenter = ViewModelProviders.of(this).get(VideoPresenterImpl::class.java)
 
@@ -44,6 +38,8 @@ class VideoPlayerActivity : AppCompatActivity(),VideoView {
         setContentView(R.layout.activity_video_player)
 
         setupPresenter()
+
+        lifecycle.addObserver(playerView)
 
         movieId = intent.getIntExtra(IE_MOVIE_ID,0)
 

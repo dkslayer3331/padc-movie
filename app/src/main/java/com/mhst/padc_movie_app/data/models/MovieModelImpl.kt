@@ -123,4 +123,8 @@ object MovieModelImpl : MovieModel,BaseModel() {
             })
     }
 
+    override fun changeFavStatus(personId: Long, isFav: Boolean, onSuccess: () -> Unit) {
+        mDb.personDao().changeFavStatus(personId,isFav)
+    }
+
 }

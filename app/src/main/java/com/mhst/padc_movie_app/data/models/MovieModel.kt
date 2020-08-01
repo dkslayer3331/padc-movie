@@ -25,4 +25,6 @@ interface MovieModel  {
 
     fun getMoviesByGenres(genreId : Int,onSuccess: (movies : List<MovieVO>) -> Unit,onError : (String) -> Unit)
 
+    fun changeFavStatus(personId: Long, isFav : Boolean, onSuccess: () -> Unit)
+
 }

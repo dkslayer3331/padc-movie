@@ -18,5 +18,6 @@ data class PersonVO(
     @SerializedName("name")
     val name : String,
     @SerializedName("profile_path")
-    val profilePath : String
+    val profilePath : String,
+    var isFav : Boolean = false
 )
