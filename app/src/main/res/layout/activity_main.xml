@@ -71,20 +71,11 @@
                     app:sliderScrollTimeInSec="3"
                     app:sliderStartAutoCycle="true" />
 
-                <TextView
+                <include
+                    android:id="@+id/vpMoviesReclcyer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:text="BEST POPULAR FILMS AND SERIES"
-                    android:textColor="@android:color/white" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvPopularMovies"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/popular_movie_viewpod" />
+                    layout="@layout/viwepod_popular_movies_recycler"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -144,41 +135,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     layout="@layout/viewpod_tab_and_viewpager"/>
-
-<!--                <RelativeLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="@color/grey800">-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_alignParentStart="true"-->
-<!--                        android:layout_marginLeft="16dp"-->
-<!--                        android:layout_marginTop="16dp"-->
-<!--                        android:text="BEST ACTORS"-->
-<!--                        android:textColor="@android:color/tertiary_text_light" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/tvLabelMoreActors"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_alignParentEnd="true"-->
-<!--                        android:layout_marginTop="16dp"-->
-<!--                        android:layout_marginRight="16dp"-->
-<!--                        android:text="MORE ACTORS"-->
-<!--                        android:textColor="@android:color/tertiary_text_light" />-->
-
-<!--                    <androidx.recyclerview.widget.RecyclerView-->
-<!--                        android:id="@+id/rvPerson"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_below="@id/tvLabelMoreActors"-->
-<!--                        android:orientation="horizontal"-->
-<!--                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--                        tools:listitem="@layout/actor_viewpod" />-->
-
-<!--                </RelativeLayout>-->
 
                 <include
                     android:id="@+id/vpActorRecycler"
