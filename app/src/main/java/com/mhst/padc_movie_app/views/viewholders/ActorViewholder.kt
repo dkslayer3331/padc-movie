@@ -18,7 +18,7 @@ class ActorViewholder(itemView: View,val favDelegate: FavDelegate) : BaseViewHol
             .error(R.drawable.avatar_placeholder)
             .into(itemView.ivActor)
         itemView.tvActorName.text = data.name
-        itemView.ivFav.setImageResource(if(data.isFav) R.drawable.ic_baseline_favorite_border_24 else R.drawable.ic_baseline_favorite_24)
+        itemView.ivFav.setImageResource(if(data.isFav) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24)
         itemView.ivFav.setOnClickListener {
             favDelegate.onTapFav(data.id,!data.isFav)
         }

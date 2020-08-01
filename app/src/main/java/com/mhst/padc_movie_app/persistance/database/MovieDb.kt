@@ -11,7 +11,7 @@ import com.mhst.padc_movie_app.persistance.daos.GenreDao
 import com.mhst.padc_movie_app.persistance.daos.MovieDao
 import com.mhst.padc_movie_app.persistance.daos.PersonDao
 
-@Database(entities = [MovieVO::class,PersonVO::class,GenreVo::class], version = 2, exportSchema = false)
+@Database(entities = [MovieVO::class,PersonVO::class,GenreVo::class], version = 3, exportSchema = false)
     abstract class MovieDb : RoomDatabase() {
         companion object {
             val DB_NAME = "PADC_MOVIES.DB"

@@ -21,7 +21,7 @@ interface PersonDao {
     @Query("delete from persons")
     fun deleteAllPeople()
 
-    @Query("update persons set isFav = :fav where id = :id ")
+    @Query("update persons set isFav = :fav where id = :id")
     fun changeFavStatus(id : Long,fav : Boolean)
 
     @Transaction
