@@ -44,8 +44,9 @@ class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
         })
 
         model.getAllGenres {
-
+            Log.d("genreErr",it)
         }.observe(lifecycleOwner, Observer {
+            Log.d("sizeOfGenres",it.size.toString())
             mView?.displayGenreList(it)
         })
 

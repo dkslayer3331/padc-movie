@@ -1,5 +1,6 @@
 package com.mhst.padc_movie_app.data.models
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.mhst.padc_movie_app.data.vos.GenreVo
 import com.mhst.padc_movie_app.data.vos.MovieDetailVO
@@ -44,6 +45,7 @@ object MovieModelImpl : MovieModel,BaseModel() {
             },{
                 onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
             })
+
     }
 
     override fun getAllPersons(onError: (String) -> Unit): LiveData<List<PersonVO>> {
@@ -103,8 +105,10 @@ object MovieModelImpl : MovieModel,BaseModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                Log.d("successsGenreById",it.size.toString())
                 onSuccess(it)
             },{
+                Log.d("getByGenreIdErr",it.localizedMessage)
                 onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
             })
     }

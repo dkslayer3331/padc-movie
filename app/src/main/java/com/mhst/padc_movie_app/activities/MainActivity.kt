@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import android.util.Log
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -59,12 +60,16 @@ class MainActivity : AppCompatActivity(),MainView {
 
     private fun setupWithTabLayout(genres : List<GenreVo>){
         tabLayout.removeAllTabs()
-        for(genre in genres){
-            tabLayout.addTab(tabLayout.newTab().setText(genre.name))
-        }
-        genrePagerAdapter = GenrePagerAdapter(supportFragmentManager,genres)
+//        for(genre in genres){
+//            tabLayout.addTab(tabLayout.newTab().setText(genre.name))
+//        }
+        genrePagerAdapter = GenrePagerAdapter(this,genres)
         genreViewPager.adapter = genrePagerAdapter
         genreViewPager.currentItem = 0
+
+        TabLayoutMediator(tabLayout,genreViewPager){ tab, position ->
+            tab.text = genres[position].name
+        }.attach()
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {}
@@ -73,10 +78,10 @@ class MainActivity : AppCompatActivity(),MainView {
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 genreViewPager.currentItem = tab!!.position
+                Log.d("currentTab",genreViewPager.currentItem.toString())
             }
 
         })
-
 
     }
 
@@ -109,21 +114,14 @@ class MainActivity : AppCompatActivity(),MainView {
 
         mPresenter.onUiReady(this)
 
-       // setupTabLayout()
     }
 
-//    fun setupSwipeRefresh(){
-////        swipeRefreshLayout.setOnRefreshListener {
-////            mPresenter.onSwipeRefresh(this)
-////        }
-//    }
 
     override fun displayPopularMovies(movies: List<MovieVO>) {
         movieAdapter.setNewData(movies.toMutableList())
     }
 
     override fun displayActors(actorList: List<PersonVO>) {
-        val actorlist = actorList
         actorAdapter.setNewData(actorList.toMutableList())
     }
 
