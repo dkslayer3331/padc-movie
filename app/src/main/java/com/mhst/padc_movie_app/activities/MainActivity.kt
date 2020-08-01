@@ -13,6 +13,7 @@ import com.mhst.padc_movie_app.adapters.ActorAdapter
 import com.mhst.padc_movie_app.adapters.GenrePagerAdapter
 import com.mhst.padc_movie_app.adapters.MovieAdapter
 import com.mhst.padc_movie_app.adapters.SliderAdapter
+import com.mhst.padc_movie_app.data.vos.GenreVo
 import com.mhst.padc_movie_app.data.vos.MovieVO
 import com.mhst.padc_movie_app.data.vos.PersonVO
 import com.mhst.padc_movie_app.mvp.presenter.MainPresenter
@@ -119,5 +120,9 @@ class MainActivity : AppCompatActivity(),MainView {
 
     override fun disableSwipeRefresh() {
         //swipeRefreshLayout.isRefreshing = false
+    }
+
+    override fun displayGenreList(genres: List<GenreVo>) {
+
     }
 }
