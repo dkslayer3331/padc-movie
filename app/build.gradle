@@ -86,4 +86,6 @@ dependencies {
     //exo player
     implementation 'com.google.android.exoplayer:exoplayer:2.11.7'
 
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
 }

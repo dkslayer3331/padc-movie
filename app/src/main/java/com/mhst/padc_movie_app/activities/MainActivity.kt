@@ -51,15 +51,15 @@ class MainActivity : AppCompatActivity(),MainView {
         mPresenter.initPresenter(this)
     }
 
-    private fun setupSlider(){
+    private fun setupSlider(movies : List<MovieVO>){
+        imageSliderAdapter = ImageSliderAdapter(this)
+        imageSliderAdapter.setData(movies.take(5))
         viewpodSlider.binData(imageSliderAdapter)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        imageSliderAdapter = ImageSliderAdapter(this)
 
         viewpodSlider = vpSlider as ImageSliderViewpod
 
@@ -73,14 +73,12 @@ class MainActivity : AppCompatActivity(),MainView {
 
         tvSeeMore.text =HtmlCompat.fromHtml(getString(R.string.see_more),HtmlCompat.FROM_HTML_MODE_LEGACY)
 
-        setupSlider()
-
         mPresenter.onUiReady(this)
 
     }
 
     override fun displayPopularMovies(movies: List<MovieVO>) {
-        imageSliderAdapter.setData(movies.take(5))
+        setupSlider(movies)
        movieAdapter = MovieAdapter(mPresenter)
        viewpodPopularMovies.binData(movieAdapter,movies.toMutableList())
     }

@@ -48,7 +48,7 @@ class DetailActivity : AppCompatActivity(),DetailView {
 //
 //    lateinit var vpDesc : LabelAndDescViewpod
 
-    fun setupPresenter(){
+    private fun setupPresenter(){
         detailPresenter = ViewModelProviders.of(this).get(DetailPresenterImpl::class.java)
         detailPresenter.initPresenter(this)
     }
