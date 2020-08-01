@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.mhst.padc_movie_app.data.models.MovieModelImpl
+import com.mhst.padc_movie_app.workers.GenreWorker
 import com.mhst.padc_movie_app.workers.PersonWorker
 import com.mhst.padc_movie_app.workers.PopularMovieWorker
 
@@ -14,6 +15,7 @@ class MovieApp : Application() {
         MovieModelImpl.initDb(this)
         oneTimePopularMovies()
         onTimePerson()
+        onTimeGenres()
     }
 
     private fun oneTimePopularMovies(){
@@ -27,6 +29,14 @@ class MovieApp : Application() {
     private fun onTimePerson(){
         val getEventsWorkRequest = OneTimeWorkRequest
             .Builder(PersonWorker::class.java)
+            .build()
+        WorkManager.getInstance(applicationContext)
+            .enqueue(getEventsWorkRequest)
+    }
+
+    private fun onTimeGenres(){
+        val getEventsWorkRequest = OneTimeWorkRequest
+            .Builder(GenreWorker::class.java)
             .build()
         WorkManager.getInstance(applicationContext)
             .enqueue(getEventsWorkRequest)

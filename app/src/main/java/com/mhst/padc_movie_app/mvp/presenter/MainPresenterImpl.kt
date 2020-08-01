@@ -43,6 +43,12 @@ class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
             mView?.displayPopularMovies(it)
         })
 
+        model.getAllGenres {
+
+        }.observe(lifecycleOwner, Observer {
+            mView?.displayGenreList(it)
+        })
+
     }
 
 }

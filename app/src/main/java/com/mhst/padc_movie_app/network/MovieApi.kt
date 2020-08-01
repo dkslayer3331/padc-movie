@@ -27,5 +27,4 @@ interface MovieApi {
         @Query("api_key") apiKey: String = API_KEY,
         @Query("append_to_response") appendToResponse: String = "credits") : Observable<MovieDetailVO>
 
-
 }

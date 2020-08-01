@@ -7,6 +7,7 @@ import android.text.Html
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mhst.padc_movie_app.R
 import com.mhst.padc_movie_app.adapters.ActorAdapter
@@ -56,6 +57,29 @@ class MainActivity : AppCompatActivity(),MainView {
         mPresenter.initPresenter(this)
     }
 
+    private fun setupWithTabLayout(genres : List<GenreVo>){
+        tabLayout.removeAllTabs()
+        for(genre in genres){
+            tabLayout.addTab(tabLayout.newTab().setText(genre.name))
+        }
+        genrePagerAdapter = GenrePagerAdapter(supportFragmentManager,genres)
+        genreViewPager.adapter = genrePagerAdapter
+        genreViewPager.currentItem = 0
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                genreViewPager.currentItem = tab!!.position
+            }
+
+        })
+
+
+    }
+
     private fun setupSlider(){
         adapter = SliderAdapter()
         adapter.setNewData(sliderUrlList)
@@ -68,11 +92,6 @@ class MainActivity : AppCompatActivity(),MainView {
 
     }
 
-    private fun setupTabLayout(){
-        TabLayoutMediator(tabLayout,genreViewPager){ tab ,pos ->
-            tab.text = "tab ${pos+1}"
-        }.attach()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,8 +102,6 @@ class MainActivity : AppCompatActivity(),MainView {
         setupMovieAdapter()
 
         setupActorAdapter()
-
-        genrePagerAdapter = GenrePagerAdapter(this)
 
         tvSeeMore.text =HtmlCompat.fromHtml(getString(R.string.see_more),HtmlCompat.FROM_HTML_MODE_LEGACY)
 
@@ -123,6 +140,6 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun displayGenreList(genres: List<GenreVo>) {
-
+        setupWithTabLayout(genres)
     }
 }

@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.mhst.padc_movie_app.data.vos.MovieVO
 import com.mhst.padc_movie_app.data.vos.PersonVO
+import com.mhst.padc_movie_app.persistance.daos.GenreDao
 import com.mhst.padc_movie_app.persistance.daos.MovieDao
 import com.mhst.padc_movie_app.persistance.daos.PersonDao
 
@@ -33,4 +34,6 @@ import com.mhst.padc_movie_app.persistance.daos.PersonDao
         abstract fun movieDao(): MovieDao
 
         abstract fun personDao() : PersonDao
+
+        abstract fun genreDao() : GenreDao
     }
