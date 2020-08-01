@@ -3,13 +3,9 @@ package com.mhst.padc_movie_app.activities
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Html
-import android.util.Log
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import com.mhst.padc_movie_app.R
 import com.mhst.padc_movie_app.adapters.ActorAdapter
 import com.mhst.padc_movie_app.adapters.GenrePagerAdapter
@@ -22,6 +18,8 @@ import com.mhst.padc_movie_app.mvp.presenter.MainPresenter
 import com.mhst.padc_movie_app.mvp.presenter.MainPresenterImpl
 import com.mhst.padc_movie_app.mvp.view.MainView
 import com.mhst.padc_movie_app.utils.sliderUrlList
+import com.mhst.padc_movie_app.views.viewpods.ActorsRecyclerViewpod
+import com.mhst.padc_movie_app.views.viewpods.TabAndViewPagerViewpod
 import com.smarteist.autoimageslider.SliderAnimations
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -35,7 +33,9 @@ class MainActivity : AppCompatActivity(),MainView {
 
     lateinit var mPresenter: MainPresenter
 
-    lateinit var actorAdapter: ActorAdapter
+    lateinit var viewPagerTabAndPager : TabAndViewPagerViewpod
+
+    lateinit var viewpodActorsRecycler: ActorsRecyclerViewpod
 
     private fun setupMovieAdapter(){
         movieAdapter = MovieAdapter(mPresenter)
@@ -45,45 +45,35 @@ class MainActivity : AppCompatActivity(),MainView {
         rvPopularMovies.adapter = movieAdapter
     }
 
-    private fun setupActorAdapter(){
-        actorAdapter = ActorAdapter()
-        rvPerson.layoutManager = LinearLayoutManager(this).apply {
-            orientation = LinearLayoutManager.HORIZONTAL
-        }
-        rvPerson.adapter = actorAdapter
-    }
-
     private fun setUpPresenter() {
         mPresenter = ViewModelProviders.of(this).get(MainPresenterImpl::class.java)
         mPresenter.initPresenter(this)
     }
 
-    private fun setupWithTabLayout(genres : List<GenreVo>){
-        tabLayout.removeAllTabs()
-//        for(genre in genres){
-//            tabLayout.addTab(tabLayout.newTab().setText(genre.name))
-//        }
-        genrePagerAdapter = GenrePagerAdapter(this,genres)
-        genreViewPager.adapter = genrePagerAdapter
-        genreViewPager.currentItem = 0
-
-        TabLayoutMediator(tabLayout,genreViewPager){ tab, position ->
-            tab.text = genres[position].name
-        }.attach()
-
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                genreViewPager.currentItem = tab!!.position
-                Log.d("currentTab",genreViewPager.currentItem.toString())
-            }
-
-        })
-
-    }
+//    private fun setupWithTabLayout(genres : List<GenreVo>){
+//        tabLayout.removeAllTabs()
+//
+//        genrePagerAdapter = GenrePagerAdapter(this,genres)
+//        genreViewPager.adapter = genrePagerAdapter
+//        genreViewPager.currentItem = 0
+//
+//        TabLayoutMediator(tabLayout,genreViewPager){ tab, position ->
+//            tab.text = genres[position].name
+//        }.attach()
+//
+//        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+//            override fun onTabReselected(tab: TabLayout.Tab?) {}
+//
+//            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+//
+//            override fun onTabSelected(tab: TabLayout.Tab?) {
+//                genreViewPager.currentItem = tab!!.position
+//                Log.d("currentTab",genreViewPager.currentItem.toString())
+//            }
+//
+//        })
+//
+//    }
 
     private fun setupSlider(){
         adapter = SliderAdapter()
@@ -102,11 +92,13 @@ class MainActivity : AppCompatActivity(),MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        viewPagerTabAndPager = vpTabAndPager as TabAndViewPagerViewpod
+
+        viewpodActorsRecycler = vpActorRecycler as ActorsRecyclerViewpod
+
         setUpPresenter()
 
         setupMovieAdapter()
-
-        setupActorAdapter()
 
         tvSeeMore.text =HtmlCompat.fromHtml(getString(R.string.see_more),HtmlCompat.FROM_HTML_MODE_LEGACY)
 
@@ -122,7 +114,7 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun displayActors(actorList: List<PersonVO>) {
-        actorAdapter.setNewData(actorList.toMutableList())
+        viewpodActorsRecycler.bindActors(actorList)
     }
 
     override fun navigateToMovieDetails(movieId: Int) {
@@ -130,14 +122,15 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun enableSwipeRefresh() {
-        //swipeRefreshLayout.isRefreshing = true
+
     }
 
     override fun disableSwipeRefresh() {
-        //swipeRefreshLayout.isRefreshing = false
+
     }
 
     override fun displayGenreList(genres: List<GenreVo>) {
-        setupWithTabLayout(genres)
+        genrePagerAdapter = GenrePagerAdapter(this,genres)
+        viewPagerTabAndPager.bindData(genrePagerAdapter)
     }
 }

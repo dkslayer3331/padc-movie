@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mhst.padc_movie_app.views.viewpods.TabAndViewPagerViewpod
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:background="@color/greyBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/darkOrange"
+        app:tabTextColor="@color/testGrey"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabMode="scrollable" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/genreViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</com.mhst.padc_movie_app.views.viewpods.TabAndViewPagerViewpod>
