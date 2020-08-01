@@ -23,6 +23,7 @@ import com.mhst.padc_movie_app.persistance.daos.PersonDao
                         dbInstance = Room.databaseBuilder(context, MovieDb::class.java, DB_NAME)
                             .allowMainThreadQueries()
                             .fallbackToDestructiveMigration()
+                            .allowMainThreadQueries()
                             .build()
                     }
                 }
