@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.mhst.padc_movie_app.views.viewpods.ActorsRecyclerViewpod
+<com.mhst.padc_movie_app.views.viewpods.ShowCaseViewpod
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/greyBackground">
+    android:background="@color/grey800">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/labelShowcases"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="BEST ACTORS"
-        android:textStyle="bold"
-        android:textColor="@color/testGrey" />
+        android:layout_marginLeft="8dp"
+        android:text="SHOWCASES"
+        android:textColor="@color/testGrey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/tvLabelMoreActors"
+        android:id="@+id/labelShowCases"
+        android:textColor="@color/testGrey"
+        android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/more_actors"
-        android:textColor="@android:color/white" />
+        android:layout_marginRight="8dp"
+        android:text="MORE SHOWCASES"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPerson"
+        android:id="@+id/rvShowcases"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvLabelMoreActors"
         android:orientation="horizontal"
+        tools:listitem="@layout/showcase_viewholder"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/actor_viewpod" />
+        android:layout_below="@id/labelShowCases"/>
 
-
-</com.mhst.padc_movie_app.views.viewpods.ActorsRecyclerViewpod>
+</com.mhst.padc_movie_app.views.viewpods.ShowCaseViewpod>

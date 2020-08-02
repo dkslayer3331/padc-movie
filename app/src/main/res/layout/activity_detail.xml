@@ -171,7 +171,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
 
-       <Button
+       <androidx.appcompat.widget.AppCompatButton
            android:text="RATE MOVIE"
            android:drawablePadding="8dp"
            android:textColor="@android:color/white"

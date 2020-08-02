@@ -31,6 +31,10 @@ class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
         model.changeFavStatus(personId,fav,onSuccess = {})
     }
 
+    override fun navigateVideo(movieId: Int) {
+
+    }
+
     private fun getAllDataForRvs(lifecycleOwner: LifecycleOwner){
         var stoprefresh = false
         var stopTwo = false

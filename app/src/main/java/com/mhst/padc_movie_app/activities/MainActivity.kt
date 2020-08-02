@@ -8,10 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mhst.padc_movie_app.R
-import com.mhst.padc_movie_app.adapters.GenrePagerAdapter
-import com.mhst.padc_movie_app.adapters.ImageSliderAdapter
-import com.mhst.padc_movie_app.adapters.MovieAdapter
-import com.mhst.padc_movie_app.adapters.SliderAdapter
+import com.mhst.padc_movie_app.adapters.*
 import com.mhst.padc_movie_app.data.vos.GenreVo
 import com.mhst.padc_movie_app.data.vos.MovieVO
 import com.mhst.padc_movie_app.data.vos.PersonVO
@@ -19,10 +16,7 @@ import com.mhst.padc_movie_app.mvp.presenter.MainPresenter
 import com.mhst.padc_movie_app.mvp.presenter.MainPresenterImpl
 import com.mhst.padc_movie_app.mvp.view.MainView
 import com.mhst.padc_movie_app.utils.sliderUrlList
-import com.mhst.padc_movie_app.views.viewpods.ActorsRecyclerViewpod
-import com.mhst.padc_movie_app.views.viewpods.ImageSliderViewpod
-import com.mhst.padc_movie_app.views.viewpods.PopularMoviesViewpod
-import com.mhst.padc_movie_app.views.viewpods.TabAndViewPagerViewpod
+import com.mhst.padc_movie_app.views.viewpods.*
 import com.smarteist.autoimageslider.SliderAnimations
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -34,11 +28,15 @@ class MainActivity : AppCompatActivity(),MainView {
 
     lateinit var mPresenter: MainPresenter
 
+    lateinit var showcaseAdapter: ShowcaseAdapter
+
     lateinit var viewpagerPagerTabAndPager : TabAndViewPagerViewpod
 
     lateinit var viewpodActorsRecycler: ActorsRecyclerViewpod
 
     lateinit var viewpodPopularMovies : PopularMoviesViewpod
+
+    lateinit var viewpodShowcase : ShowCaseViewpod
 
     lateinit var viewpodSlider : ImageSliderViewpod
 
@@ -69,6 +67,8 @@ class MainActivity : AppCompatActivity(),MainView {
 
         viewpodPopularMovies = vpMoviesReclcyer as PopularMoviesViewpod
 
+        viewpodShowcase = vpShowcase as ShowCaseViewpod
+
         setUpPresenter()
 
         tvSeeMore.text = HtmlCompat.fromHtml(getString(R.string.see_more),HtmlCompat.FROM_HTML_MODE_LEGACY)
@@ -84,7 +84,9 @@ class MainActivity : AppCompatActivity(),MainView {
     override fun displayPopularMovies(movies: List<MovieVO>) {
         setupSlider(movies)
        movieAdapter = MovieAdapter(mPresenter)
+        showcaseAdapter = ShowcaseAdapter(mPresenter)
        viewpodPopularMovies.binData(movieAdapter,movies.toMutableList())
+       viewpodShowcase.bindData(showcaseAdapter,movies.reversed().toMutableList())
     }
 
     override fun displayActors(actorList: List<PersonVO>) {
@@ -106,5 +108,9 @@ class MainActivity : AppCompatActivity(),MainView {
     override fun displayGenreList(genres: List<GenreVo>) {
         genrePagerAdapter = GenrePagerAdapter(this,genres)
         viewpagerPagerTabAndPager.bindData(genrePagerAdapter)
+    }
+
+    override fun navigateVideo(movieId: Int) {
+        startActivity(VideoPlayerActivity.onNewIntent(this,movieId))
     }
 }

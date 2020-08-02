@@ -2,16 +2,9 @@ package com.mhst.padc_movie_app.activities
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
-import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.source.dash.DashMediaSource
-import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import com.mhst.padc_movie_app.R
 import com.mhst.padc_movie_app.mvp.presenter.VideoPresenter
 import com.mhst.padc_movie_app.mvp.presenter.VideoPresenterImpl
@@ -19,7 +12,6 @@ import com.mhst.padc_movie_app.mvp.view.VideoView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import kotlinx.android.synthetic.main.activity_video_player.*
-import kotlinx.android.synthetic.main.activity_video_player.view.*
 
 class VideoPlayerActivity : AppCompatActivity(),VideoView {
 
@@ -58,9 +50,9 @@ class VideoPlayerActivity : AppCompatActivity(),VideoView {
 
     companion object{
         const val IE_MOVIE_ID = "movieId"
-        fun onNewIntent(context: Context,key: Int) : Intent{
+        fun onNewIntent(context: Context, movieId: Int) : Intent{
             val intent = Intent(context,VideoPlayerActivity::class.java)
-            intent.putExtra(IE_MOVIE_ID,key)
+            intent.putExtra(IE_MOVIE_ID,movieId)
             return intent
         }
     }

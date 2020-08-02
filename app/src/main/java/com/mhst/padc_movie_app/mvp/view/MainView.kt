@@ -14,4 +14,5 @@ interface MainView : BaseView {
     fun enableSwipeRefresh()
     fun disableSwipeRefresh()
     fun displayGenreList(genres : List<GenreVo>)
+    fun navigateVideo(movieId: Int)
 }

@@ -135,6 +135,12 @@
                     layout="@layout/viewpod_tab_and_viewpager"/>
 
                 <include
+                    android:id="@+id/vpShowcase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/showcase_viwepod"/>
+
+                <include
                     android:id="@+id/vpActorRecycler"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
