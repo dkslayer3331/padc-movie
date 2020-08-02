@@ -61,7 +61,7 @@ object MockMovieImpl : MovieModel {
         onSuccess: (movies: List<MovieVO>) -> Unit,
         onError: (String) -> Unit
     ) {
-
+        onSuccess(DummyDatas.getMovieList())
     }
 
     override fun changeFavStatus(personId: Long, isFav: Boolean, onSuccess: () -> Unit) {

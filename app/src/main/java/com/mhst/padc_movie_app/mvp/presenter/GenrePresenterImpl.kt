@@ -10,7 +10,7 @@ import com.mhst.padc_movie_app.mvp.view.GenreListView
  */
 class GenrePresenterImpl : GenrePresenter,AbstractBasePresenter<GenreListView>() {
 
-    private val model = MovieModelImpl
+     var model : MovieModel = MovieModelImpl
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner, movieId: Int) {
             model.getMoviesByGenres(movieId,onSuccess = {
