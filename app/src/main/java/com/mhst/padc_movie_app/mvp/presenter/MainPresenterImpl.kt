@@ -32,12 +32,17 @@ class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
     }
 
     private fun getAllDataForRvs(lifecycleOwner: LifecycleOwner){
-       // mView?.enableSwipeRefresh()
-
+        var stoprefresh = false
+        var stopTwo = false
+        var stopThree = false
+        mView?.enableSwipeRefresh()
         model.getAllPersons {
+            mView?.disableSwipeRefresh()
             Log.d("errPersonCall",it)
         }.observe(lifecycleOwner, Observer {
+            stoprefresh = true
             Log.d("personInPresenter",it.size.toString())
+            mView?.disableSwipeRefresh()
             mView?.displayActors(it)
         })
 
@@ -45,15 +50,19 @@ class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
            // mView?.disableSwipeRefresh()
             Log.d("err",it)
         }.observe(lifecycleOwner, Observer {
+            stopTwo = true
             mView?.displayPopularMovies(it)
         })
 
         model.getAllGenres {
             Log.d("genreErr",it)
         }.observe(lifecycleOwner, Observer {
+            stopThree = true
             Log.d("sizeOfGenres",it.size.toString())
             mView?.displayGenreList(it)
         })
+
+        if(stoprefresh && stopTwo && stopThree) mView?.disableSwipeRefresh()
 
     }
 

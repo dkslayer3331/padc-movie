@@ -32,21 +32,13 @@ class DetailActivity : AppCompatActivity(),DetailView {
 
     var genreStrList = ""
 
+    var movieId = 0
+
     lateinit var detailPresenter: DetailPresenter
 
     lateinit var castAdapter: CastAdapter
 
     lateinit var crewAdapter: CrewAdapter
-
-//    lateinit var vpTitle : LabelAndDescViewpod
-//
-//    lateinit var vpType : LabelAndDescViewpod
-//
-//    lateinit var vpProduction : LabelAndDescViewpod
-//
-//    lateinit var vpPremiere : LabelAndDescViewpod
-//
-//    lateinit var vpDesc : LabelAndDescViewpod
 
     private fun setupPresenter(){
         detailPresenter = ViewModelProviders.of(this).get(DetailPresenterImpl::class.java)
@@ -61,7 +53,7 @@ class DetailActivity : AppCompatActivity(),DetailView {
         rvDetailCrew.adapter = crewAdapter
     }
 
-    fun setupCastAdapter(){
+    private fun setupCastAdapter(){
         castAdapter = CastAdapter()
         rvDetailCasts.layoutManager = LinearLayoutManager(this).apply {
             orientation = LinearLayoutManager.HORIZONTAL
@@ -80,9 +72,6 @@ class DetailActivity : AppCompatActivity(),DetailView {
         rvMovieGenres
     }
 
-    private fun bindLabelAndTextViewpods(){
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,11 +83,15 @@ class DetailActivity : AppCompatActivity(),DetailView {
 
         setupCrewAdapter()
 
-        val movieId = intent.getIntExtra(IE_MOVIE_ID,0)
+        movieId = intent.getIntExtra(IE_MOVIE_ID,0)
 
         Log.d("movieId",movieId.toString())
 
         detailPresenter.onUiReady(movieId)
+
+        detailSwipeRefreshLayout.setOnRefreshListener {
+            detailPresenter.onSwipeRefresh(movieId)
+        }
 
     }
 
@@ -130,4 +123,13 @@ class DetailActivity : AppCompatActivity(),DetailView {
         (vpPremire as LabelAndDescViewpod).binData("Premiere",movieDetailVO.releaseDate)
         (vpDesc as LabelAndDescViewpod).binData("Description",movieDetailVO.overview)
     }
+
+    override fun showSwipeRefresh() {
+        detailSwipeRefreshLayout.isRefreshing = true
+    }
+
+    override fun hideSwipeRefresh() {
+        detailSwipeRefreshLayout.isRefreshing = false
+    }
+
 }

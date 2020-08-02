@@ -75,6 +75,10 @@ class MainActivity : AppCompatActivity(),MainView {
 
         mPresenter.onUiReady(this)
 
+        swipeRefreshLayout.setOnRefreshListener {
+            mPresenter.onSwipeRefresh(this)
+        }
+
     }
 
     override fun displayPopularMovies(movies: List<MovieVO>) {
@@ -92,11 +96,11 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun enableSwipeRefresh() {
-
+        swipeRefreshLayout.isRefreshing = true
     }
 
     override fun disableSwipeRefresh() {
-
+        swipeRefreshLayout.isRefreshing = false
     }
 
     override fun displayGenreList(genres: List<GenreVo>) {

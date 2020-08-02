@@ -27,7 +27,7 @@ class VideoPlayerActivity : AppCompatActivity(),VideoView {
 
      var movieId : Int = 0
 
-    fun setupPresenter(){
+    private fun setupPresenter(){
         mPresenter = ViewModelProviders.of(this).get(VideoPresenterImpl::class.java)
 
         mPresenter.initPresenter(this)

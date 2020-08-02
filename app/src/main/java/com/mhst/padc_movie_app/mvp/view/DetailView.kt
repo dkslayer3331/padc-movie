@@ -7,4 +7,6 @@ import com.mhst.padc_movie_app.data.vos.MovieDetailVO
  */
 interface DetailView : BaseView {
     fun showDetail(movieDetailVO: MovieDetailVO)
+    fun showSwipeRefresh()
+    fun hideSwipeRefresh()
 }
