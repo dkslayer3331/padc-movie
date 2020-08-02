@@ -3,6 +3,7 @@ package com.mhst.padc_movie_app.mvp.presenter
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import com.mhst.padc_movie_app.data.models.MovieModel
 import com.mhst.padc_movie_app.data.models.MovieModelImpl
 import com.mhst.padc_movie_app.mvp.view.MainView
 import io.reactivex.Observable
@@ -12,7 +13,7 @@ import io.reactivex.Observable
  */
 class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
 
-    var model = MovieModelImpl
+    var model : MovieModel = MovieModelImpl
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
         getAllDataForRvs(lifecycleOwner)

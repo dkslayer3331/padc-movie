@@ -5,16 +5,19 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.mhst.padc_movie_app.data.models.MockMovieImpl
 import com.mhst.padc_movie_app.data.models.MovieModel
 import com.mhst.padc_movie_app.data.models.MovieModelImpl
 import com.mhst.padc_movie_app.data.vos.MovieVO
 import com.mhst.padc_movie_app.mvp.presenter.MainPresenterImpl
 import com.mhst.padc_movie_app.mvp.view.MainView
+import com.mhst.padc_movie_app.utils.DummyDatas
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import io.mockk.impl.annotations.RelaxedMockK
 import org.junit.Before
 import io.mockk.MockKAnnotations
+import io.mockk.verify
 import org.junit.Test
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
@@ -25,18 +28,6 @@ import org.mockito.MockitoAnnotations
 @RunWith(AndroidJUnit4::class)
 @Config(manifest = Config.NONE)
 class MainPresenterTest {
-
-    private fun getMovieList() : List<MovieVO>{
-        val list = mutableListOf<MovieVO>()
-        for(i in 1..5L){
-            list.add(
-                MovieVO(i,1.5f,20,false,
-                    "", "lang $i",
-                    "title $i", listOf(),"title $i",3.4f,"","")
-            )
-        }
-        return  list
-    }
 
     private lateinit var mPresenter : MainPresenterImpl
 
@@ -51,11 +42,11 @@ class MainPresenterTest {
 
         MovieModelImpl.initDb(ApplicationProvider.getApplicationContext())
 
-        movieModel = MovieModelImpl
+        movieModel = MockMovieImpl
 
         mPresenter = MainPresenterImpl()
         mPresenter.initPresenter(mView)
-        mPresenter.model = this.movieModel as MovieModelImpl
+        mPresenter.model = movieModel
     }
 
     @Test
@@ -67,8 +58,16 @@ class MainPresenterTest {
 
         mPresenter.onUiReady(lifeCycleOwner)
 
-        io.mockk.verify {
-            mView.displayPopularMovies(getMovieList())
+        verify {
+            mView.displayPopularMovies(DummyDatas.getMovieList())
+        }
+
+        verify {
+            mView.displayActors(DummyDatas.getAllPeople())
+        }
+
+        verify {
+            mView.displayGenreList(DummyDatas.getAllGenres())
         }
 
     }
