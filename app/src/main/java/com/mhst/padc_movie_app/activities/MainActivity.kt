@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity(),MainView {
 
         setUpPresenter()
 
-        tvSeeMore.text =HtmlCompat.fromHtml(getString(R.string.see_more),HtmlCompat.FROM_HTML_MODE_LEGACY)
+        tvSeeMore.text = HtmlCompat.fromHtml(getString(R.string.see_more),HtmlCompat.FROM_HTML_MODE_LEGACY)
 
         mPresenter.onUiReady(this)
 

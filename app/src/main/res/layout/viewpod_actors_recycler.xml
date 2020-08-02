@@ -14,7 +14,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="BEST ACTORS"
-        android:textColor="@android:color/tertiary_text_light" />
+        android:textStyle="bold"
+        android:textColor="@color/testGrey" />
 
     <TextView
         android:id="@+id/tvLabelMoreActors"
@@ -23,8 +24,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
-        android:text="MORE ACTORS"
-        android:textColor="@android:color/tertiary_text_light" />
+        android:text="@string/more_actors"
+        android:textColor="@android:color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPerson"

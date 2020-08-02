@@ -27,6 +27,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="Discover"
                 android:textColor="@android:color/white" />
 
@@ -77,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:background="@color/testGrey">
+                    android:background="@color/grey800">
 
                     <TextView
                         android:id="@+id/textView"

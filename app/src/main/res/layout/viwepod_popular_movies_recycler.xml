@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="BEST POPULAR FILMS AND SERIES"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/testGrey"
+        android:textStyle="bold"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPopularMovies"

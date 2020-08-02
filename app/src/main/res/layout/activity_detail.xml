@@ -36,8 +36,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="@color/darkOrange"
             android:padding="8dp"
+
+            android:background="@drawable/round_corner_fill_button"
             android:text="TextView"
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toTopOf="@+id/tvMovieTitle"
@@ -59,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="2hr 45min"
+            android:textStyle="bold"
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -70,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="Fantastic Beasts"
+            android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toTopOf="@+id/tvDuration"
@@ -115,7 +118,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="8dp"
             android:text="9,75"
-            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+            android:textSize="24sp"
             android:textColor="@color/design_default_color_on_primary"
             app:layout_constraintBottom_toBottomOf="@+id/tvReleaseYear"
             app:layout_constraintEnd_toEndOf="parent"
@@ -127,6 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="TextView"
+            android:textColor="@color/exo_edit_mode_background_color"
             app:layout_constraintBottom_toBottomOf="@+id/tvAvgVoteCount"
             app:layout_constraintStart_toStartOf="@+id/ratingBar"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
@@ -160,19 +164,19 @@
        <com.google.android.material.button.MaterialButton
            android:text="PLAY TRAILER"
            android:drawablePadding="8dp"
-           android:backgroundTint="@color/darkOrange"
+           app:backgroundTint="@color/darkOrange"
+           android:background="@drawable/round_corner_fill_button"
            app:iconTint="@color/testGrey"
            app:icon="@drawable/ic_baseline_play_circle_filled_24"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
 
-       <com.google.android.material.button.MaterialButton
+       <Button
            android:text="RATE MOVIE"
-           app:strokeColor="@android:color/white"
-           style="@style/Widget.MaterialComponents.Button.OutlinedButton"
            android:drawablePadding="8dp"
            android:textColor="@android:color/white"
            android:layout_marginLeft="8dp"
+           android:background="@drawable/outlined_button"
            app:iconTint="@color/darkOrange"
            app:icon="@drawable/ic_baseline_star_24"
            android:layout_width="wrap_content"
@@ -188,7 +192,8 @@
 
         <TextView
             android:text="ACTORS"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/testGrey"
+            android:textStyle="bold"
             android:layout_marginTop="24dp"
             android:layout_marginLeft="16dp"
             android:layout_width="wrap_content"
@@ -255,6 +260,7 @@
             android:id="@+id/tvLabelMoreCreators"
             android:layout_marginTop="16dp"
             android:text="MORE CREATORS"
+            android:textStyle="bold"
             android:textColor="@android:color/tertiary_text_light"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="16dp"

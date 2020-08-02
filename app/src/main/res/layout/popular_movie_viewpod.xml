@@ -33,13 +33,14 @@
         android:layout_below="@id/tvMovieName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:textColor="@android:color/white"
         tools:text="4500"/>
 
     <RatingBar
         android:id="@+id/rbMovieRating"
         android:layout_below="@id/tvMovieName"
-        style="?attr/ratingBarStyleSmall"
+        style="@style/RatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/tvVoteCount"
