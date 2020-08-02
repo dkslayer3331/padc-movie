@@ -53,7 +53,7 @@ object MockMovieImpl : MovieModel {
         onSuccess: (video: VideoVO) -> Unit,
         onError: (String) -> Unit
     ) {
-
+        onSuccess(DummyDatas.getVideoById(movieId))
     }
 
     override fun getMoviesByGenres(

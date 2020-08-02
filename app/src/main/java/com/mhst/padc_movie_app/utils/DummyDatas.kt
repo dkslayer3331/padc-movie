@@ -1,9 +1,6 @@
 package com.mhst.padc_movie_app.utils
 
-import com.mhst.padc_movie_app.data.vos.GenreVo
-import com.mhst.padc_movie_app.data.vos.MovieDetailVO
-import com.mhst.padc_movie_app.data.vos.MovieVO
-import com.mhst.padc_movie_app.data.vos.PersonVO
+import com.mhst.padc_movie_app.data.vos.*
 
 /**
  * Created by Moe Htet on 02,August,2020
@@ -41,6 +38,10 @@ object DummyDatas{
 
     fun getDummyDetail(id : Int) : MovieDetailVO{
         return MovieDetailVO(false,"", listOf(),id)
+    }
+
+    fun getVideoById(movieId : Int) : VideoVO{
+        return VideoVO()
     }
 
 }
