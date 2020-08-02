@@ -1,6 +1,7 @@
 package com.mhst.padc_movie_app.utils
 
 import com.mhst.padc_movie_app.data.vos.GenreVo
+import com.mhst.padc_movie_app.data.vos.MovieDetailVO
 import com.mhst.padc_movie_app.data.vos.MovieVO
 import com.mhst.padc_movie_app.data.vos.PersonVO
 
@@ -36,6 +37,10 @@ object DummyDatas{
             list.add(GenreVo(i,"genre $i"))
         }
         return list
+    }
+
+    fun getDummyDetail(id : Int) : MovieDetailVO{
+        return MovieDetailVO(false,"", listOf(),id)
     }
 
 }
