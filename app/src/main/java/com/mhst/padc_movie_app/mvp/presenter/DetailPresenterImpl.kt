@@ -4,11 +4,13 @@ import android.util.Log
 import com.mhst.padc_movie_app.data.models.MovieModel
 import com.mhst.padc_movie_app.data.models.MovieModelImpl
 import com.mhst.padc_movie_app.mvp.view.DetailView
+import com.mhst.shared.AbstractBasePresenter
 
 /**
  * Created by Moe Htet on 01,August,2020
  */
-class DetailPresenterImpl : DetailPresenter,AbstractBasePresenter<DetailView>() {
+class DetailPresenterImpl : DetailPresenter,
+    AbstractBasePresenter<DetailView>() {
 
      var model : MovieModel = MovieModelImpl
 

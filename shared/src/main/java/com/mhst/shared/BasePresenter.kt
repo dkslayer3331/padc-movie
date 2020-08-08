@@ -1,6 +1,4 @@
-package com.mhst.padc_movie_app.mvp.presenter
-
-import com.mhst.padc_movie_app.mvp.view.BaseView
+package com.mhst.shared
 
 /**
  * Created by Moe Htet on 31,July,2020

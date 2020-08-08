@@ -3,9 +3,8 @@ package com.mhst.padc_movie_app.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.mhst.padc_movie_app.R
-import com.mhst.padc_movie_app.adapters.BaseRecyclerAdapter
+import com.mhst.shared.BaseRecyclerAdapter
 import com.mhst.padc_movie_app.data.vos.CrewVO
-import com.mhst.padc_movie_app.views.viewholders.CastViewHolder
 import com.mhst.padc_movie_app.views.viewholders.CrewViewHolder
 
 /**

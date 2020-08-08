@@ -5,11 +5,11 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.mhst.padc_movie_app.data.vos.MovieVO
 import com.mhst.padc_movie_app.delegate.TapDelegate
-import com.mhst.padc_movie_app.utils.POSTER_BASE_URL
 import com.mhst.padc_movie_app.utils.next_lvl_url
+import com.mhst.shared.BaseViewHolder
 import kotlinx.android.synthetic.main.popular_movie_viewpod.view.*
 
-class MovieViewHolder(itemView: View,val tapDelegate: TapDelegate) : BaseViewHolder<MovieVO>(itemView) {
+class MovieViewHolder(val itemView: View,val tapDelegate: TapDelegate) : BaseViewHolder<MovieVO>(itemView) {
 
     init {
        itemView.setOnClickListener {

@@ -3,7 +3,7 @@ package com.mhst.padc_movie_app.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.mhst.padc_movie_app.R
-import com.mhst.padc_movie_app.adapters.BaseRecyclerAdapter
+import com.mhst.shared.BaseRecyclerAdapter
 import com.mhst.padc_movie_app.data.vos.PersonVO
 import com.mhst.padc_movie_app.delegate.FavDelegate
 import com.mhst.padc_movie_app.views.viewholders.ActorViewholder

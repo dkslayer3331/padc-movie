@@ -1,7 +1,6 @@
-package com.mhst.padc_movie_app.mvp.presenter
+package com.mhst.shared
 
 import androidx.lifecycle.ViewModel
-import com.mhst.padc_movie_app.mvp.view.BaseView
 
 /**
  * Created by Moe Htet on 31,July,2020

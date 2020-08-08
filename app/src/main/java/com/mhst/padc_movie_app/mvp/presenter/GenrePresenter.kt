@@ -3,6 +3,7 @@ package com.mhst.padc_movie_app.mvp.presenter
 import androidx.lifecycle.LifecycleOwner
 import com.mhst.padc_movie_app.delegate.TapDelegate
 import com.mhst.padc_movie_app.mvp.view.GenreListView
+import com.mhst.shared.BasePresenter
 
 /**
  * Created by Moe Htet on 01,August,2020

@@ -6,12 +6,13 @@ import androidx.lifecycle.Observer
 import com.mhst.padc_movie_app.data.models.MovieModel
 import com.mhst.padc_movie_app.data.models.MovieModelImpl
 import com.mhst.padc_movie_app.mvp.view.MainView
-import io.reactivex.Observable
+import com.mhst.shared.AbstractBasePresenter
 
 /**
  * Created by Moe Htet on 31,July,2020
  */
-class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
+class MainPresenterImpl : MainPresenter,
+    AbstractBasePresenter<MainView>() {
 
     var model : MovieModel = MovieModelImpl
 

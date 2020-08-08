@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.mhst.padc_movie_app.R
 import com.mhst.padc_movie_app.data.vos.MovieVO
-import com.mhst.padc_movie_app.delegate.TapDelegate
 import com.mhst.padc_movie_app.delegate.TapVideo
 import com.mhst.padc_movie_app.views.viewholders.ShowCaseViewHolder
+import com.mhst.shared.BaseRecyclerAdapter
 
 /**
  * Created by Moe Htet on 02,August,2020

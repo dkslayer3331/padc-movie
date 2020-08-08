@@ -5,11 +5,12 @@ import com.mhst.padc_movie_app.delegate.FavDelegate
 import com.mhst.padc_movie_app.delegate.TapDelegate
 import com.mhst.padc_movie_app.delegate.TapVideo
 import com.mhst.padc_movie_app.mvp.view.MainView
+import com.mhst.shared.BasePresenter
 
 /**
  * Created by Moe Htet on 31,July,2020
  */
-interface MainPresenter : TapDelegate,BasePresenter<MainView>,FavDelegate,TapVideo {
+interface MainPresenter : TapDelegate, BasePresenter<MainView>,FavDelegate,TapVideo {
     fun onUiReady(lifecycleOwner: LifecycleOwner)
     fun onSwipeRefresh(lifecycleOwner: LifecycleOwner)
 }

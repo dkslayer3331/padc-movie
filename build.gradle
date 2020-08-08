@@ -36,3 +36,5 @@ def loadMovieApiKey(){
     properties.load(project.rootProject.file('movie_api_key.properties').newDataInputStream())
     return properties
 }
+
+apply from : 'libraries.gradle'

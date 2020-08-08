@@ -4,11 +4,13 @@ import androidx.lifecycle.LifecycleOwner
 import com.mhst.padc_movie_app.data.models.MovieModel
 import com.mhst.padc_movie_app.data.models.MovieModelImpl
 import com.mhst.padc_movie_app.mvp.view.GenreListView
+import com.mhst.shared.AbstractBasePresenter
 
 /**
  * Created by Moe Htet on 01,August,2020
  */
-class GenrePresenterImpl : GenrePresenter,AbstractBasePresenter<GenreListView>() {
+class GenrePresenterImpl : GenrePresenter,
+    AbstractBasePresenter<GenreListView>() {
 
      var model : MovieModel = MovieModelImpl
 

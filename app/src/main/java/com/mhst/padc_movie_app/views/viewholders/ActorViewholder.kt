@@ -5,14 +5,14 @@ import com.bumptech.glide.Glide
 import com.mhst.padc_movie_app.R
 import com.mhst.padc_movie_app.data.vos.PersonVO
 import com.mhst.padc_movie_app.delegate.FavDelegate
-import com.mhst.padc_movie_app.utils.POSTER_BASE_URL
 import com.mhst.padc_movie_app.utils.next_lvl_url
+import com.mhst.shared.BaseViewHolder
 import kotlinx.android.synthetic.main.actor_viewpod.view.*
 
 /**
  * Created by Moe Htet on 31,July,2020
  */
-class ActorViewholder(itemView: View,val favDelegate: FavDelegate) : BaseViewHolder<PersonVO>(itemView) {
+class ActorViewholder(val itemView: View,val favDelegate: FavDelegate) : BaseViewHolder<PersonVO>(itemView) {
     override fun bindData(data: PersonVO) {
         Glide.with(itemView.context).load("$next_lvl_url${data.profilePath}")
             .error(R.drawable.avatar_placeholder)

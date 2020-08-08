@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.tabs.TabLayoutMediator
 import com.mhst.padc_movie_app.R
 import com.mhst.padc_movie_app.adapters.*
 import com.mhst.padc_movie_app.data.vos.GenreVo

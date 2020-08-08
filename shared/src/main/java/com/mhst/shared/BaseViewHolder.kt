@@ -1,4 +1,4 @@
-package com.mhst.padc_movie_app.views.viewholders
+package com.mhst.shared
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

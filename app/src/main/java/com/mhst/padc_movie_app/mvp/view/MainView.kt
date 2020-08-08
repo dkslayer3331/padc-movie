@@ -3,6 +3,7 @@ package com.mhst.padc_movie_app.mvp.view
 import com.mhst.padc_movie_app.data.vos.GenreVo
 import com.mhst.padc_movie_app.data.vos.MovieVO
 import com.mhst.padc_movie_app.data.vos.PersonVO
+import com.mhst.shared.BaseView
 
 /**
  * Created by Moe Htet on 31,July,2020
