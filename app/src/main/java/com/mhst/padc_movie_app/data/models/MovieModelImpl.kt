@@ -2,8 +2,8 @@ package com.mhst.padc_movie_app.data.models
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import com.mhst.padc_movie_app.BuildConfig
 import com.mhst.padc_movie_app.data.vos.*
-import com.mhst.padc_movie_app.utils.API_KEY
 import com.mhst.padc_movie_app.utils.NO_INTERNET_CONNECTION
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -16,7 +16,7 @@ object MovieModelImpl : MovieModel,BaseModel() {
     }
 
     override fun getMoviesAndSaveToDb(onSuccess: () -> Unit, onError: (String) -> Unit) {
-        mApi.getPopularMovies(API_KEY)
+        mApi.getPopularMovies(BuildConfig.MOVIE_API_KEY)
             .map { it.movies }
             .flatMap{
                 mDb.movieDao().deleteInsert(it)
@@ -29,7 +29,7 @@ object MovieModelImpl : MovieModel,BaseModel() {
             },{
                 onError(it.localizedMessage ?: NO_INTERNET_CONNECTION)
             })
-        mApi.getPopularPerson(API_KEY)
+        mApi.getPopularPerson(BuildConfig.MOVIE_API_KEY)
             .map { it.result }
             .flatMap{
                 mDb.personDao().deleteInsert(it)
@@ -50,7 +50,7 @@ object MovieModelImpl : MovieModel,BaseModel() {
     }
 
     override fun getPeopleAndSaveToDb(onSuccess: () -> Unit, onError: (String) -> Unit) {
-        mApi.getPopularPerson(API_KEY)
+        mApi.getPopularPerson(BuildConfig.MOVIE_API_KEY)
             .map { it.result }
             .flatMap{
                 mDb.personDao().deleteInsert(it)
@@ -70,7 +70,7 @@ object MovieModelImpl : MovieModel,BaseModel() {
     }
 
     override fun getGenresAndSaveToDb(onSuccess: () -> Unit, onError: (String) -> Unit) {
-        mApi.getAllGenres(API_KEY)
+        mApi.getAllGenres(BuildConfig.MOVIE_API_KEY)
             .map { it.genres }
             .flatMap{
                 mDb.genreDao().deleteInsert(it)
@@ -84,7 +84,7 @@ object MovieModelImpl : MovieModel,BaseModel() {
     }
 
     override fun getMovieDetail(movieId: Int, onSuccess: (MovieDetailVO) -> Unit, onError: (String) -> Unit) {
-        mApi.getMovieDetail(movieId, API_KEY)
+        mApi.getMovieDetail(movieId,BuildConfig.MOVIE_API_KEY)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ onSuccess(it) },{
@@ -97,7 +97,7 @@ object MovieModelImpl : MovieModel,BaseModel() {
         onSuccess: (video: VideoVO) -> Unit,
         onError: (String) -> Unit
     ) {
-        mApi.getVideosById(movieId,API_KEY)
+        mApi.getVideosById(movieId,BuildConfig.MOVIE_API_KEY)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ onSuccess(it.videos[0]) },{
@@ -110,7 +110,7 @@ object MovieModelImpl : MovieModel,BaseModel() {
         onSuccess: (movies: List<MovieVO>) -> Unit,
         onError: (String) -> Unit
     ) {
-        mApi.getMoviesByGenre(API_KEY,genreId)
+        mApi.getMoviesByGenre(BuildConfig.MOVIE_API_KEY,genreId)
             .map { it.movies }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

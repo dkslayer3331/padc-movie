@@ -24,3 +24,15 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+def movieApiKeyData = loadMovieApiKey()
+
+ext{
+    apiKey = movieApiKeyData.getProperty('MOVIE_API_KEY')
+}
+
+def loadMovieApiKey(){
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('movie_api_key.properties').newDataInputStream())
+    return properties
+}
