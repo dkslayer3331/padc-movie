@@ -31,7 +31,7 @@ class ImageSliderFragment : Fragment() {
         val movieId = arguments?.getInt(ID_KEY)
         Log.d("insideFragment",url)
         Glide.with(view.context).load(next_lvl_url+url).into(ivSliderImage)
-        ivSliderImage.setOnClickListener {
+        btnPlaySlider.setOnClickListener {
            startActivity(VideoPlayerActivity.onNewIntent(context!!,movieId!!))
         }
     }

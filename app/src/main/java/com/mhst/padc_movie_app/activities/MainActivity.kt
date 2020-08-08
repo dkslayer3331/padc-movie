@@ -3,6 +3,7 @@ package com.mhst.padc_movie_app.activities
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,9 +16,7 @@ import com.mhst.padc_movie_app.data.vos.PersonVO
 import com.mhst.padc_movie_app.mvp.presenter.MainPresenter
 import com.mhst.padc_movie_app.mvp.presenter.MainPresenterImpl
 import com.mhst.padc_movie_app.mvp.view.MainView
-import com.mhst.padc_movie_app.utils.sliderUrlList
 import com.mhst.padc_movie_app.views.viewpods.*
-import com.smarteist.autoimageslider.SliderAnimations
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(),MainView {
@@ -111,6 +110,7 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun navigateVideo(movieId: Int) {
+        Log.d("me also","get called")
         startActivity(VideoPlayerActivity.onNewIntent(this,movieId))
     }
 }

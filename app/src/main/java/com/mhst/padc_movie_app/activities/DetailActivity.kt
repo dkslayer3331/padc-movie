@@ -63,6 +63,7 @@ class DetailActivity : AppCompatActivity(),DetailView {
     }
 
    private fun bindGenres(genres : List<GenreVo>){
+       rvMovieGenres.removeAllViews()
         for(genre in genres){
             val chip = Chip(this).apply {
                 text = genre.name
@@ -83,6 +84,10 @@ class DetailActivity : AppCompatActivity(),DetailView {
         setupCastAdapter()
 
         setupCrewAdapter()
+
+        ibBack.setOnClickListener {
+            this.finish()
+        }
 
         movieId = intent.getIntExtra(IE_MOVIE_ID,0)
 

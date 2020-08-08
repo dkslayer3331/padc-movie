@@ -42,7 +42,9 @@ class VideoPlayerActivity : AppCompatActivity(),VideoView {
     override fun showVideo(key: String) {
         playerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener(){
             override fun onReady(youTubePlayer: YouTubePlayer) {
-               youTubePlayer.loadVideo(key,0f)
+               youTubePlayer.loadVideo(key,0f).apply {
+
+               }
             }
         })
     }

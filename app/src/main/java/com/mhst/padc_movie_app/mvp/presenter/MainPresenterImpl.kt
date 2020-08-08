@@ -32,7 +32,7 @@ class MainPresenterImpl : MainPresenter,AbstractBasePresenter<MainView>() {
     }
 
     override fun navigateVideo(movieId: Int) {
-
+        mView?.navigateVideo(movieId)
     }
 
     private fun getAllDataForRvs(lifecycleOwner: LifecycleOwner){

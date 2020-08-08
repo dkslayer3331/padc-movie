@@ -1,5 +1,6 @@
 package com.mhst.padc_movie_app.views.viewholders
 
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.mhst.padc_movie_app.data.vos.MovieVO
@@ -11,7 +12,7 @@ import kotlinx.android.synthetic.main.showcase_viewholder.view.*
 /**
  * Created by Moe Htet on 02,August,2020
  */
-class ShowCaseViewHolder(itemView: View,delegate: TapVideo) : BaseViewHolder<MovieVO>(itemView) {
+class ShowCaseViewHolder(itemView: View,val delegate: TapVideo) : BaseViewHolder<MovieVO>(itemView) {
 
     init {
         itemView.setOnClickListener {
@@ -22,5 +23,8 @@ class ShowCaseViewHolder(itemView: View,delegate: TapVideo) : BaseViewHolder<Mov
     override fun bindData(data: MovieVO) {
         mData = data
         Glide.with(itemView.context).load(next_lvl_url+data.posterPath).into(itemView.ivShowcase)
+//        itemView.btnPlayShowcase.setOnClickListener {
+//            delegate.navigateVideo(mData?.id?.toInt() ?: 0)
+//        }
     }
 }
