@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.actor_viewpod.view.*
 /**
  * Created by Moe Htet on 01,August,2020
  */
-class CastViewHolder(val itemView: View) : BaseViewHolder<CastVO>(itemView) {
+class CastViewHolder(itemView: View) : BaseViewHolder<CastVO>(itemView) {
     override fun bindData(data: CastVO) {
         Glide.with(itemView.context).load("$next_lvl_url${data.profilePath}").into(itemView.ivActor)
         itemView.tvActorName.text = data.name

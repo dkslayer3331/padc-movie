@@ -2,16 +2,43 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'me.moallemi.advanced-build-version'
+
+advancedVersioning {
+    nameOptions {
+        versionMajor 1
+        versionMinor 3
+        versionPatch 6
+        versionBuild 8
+    }
+    codeOptions { }
+    outputOptions { }
+}
+
+def appVersionName = advancedVersioning.versionName
+def appVersionCode = advancedVersioning.versionCode
+
+advancedVersioning {
+    codeOptions {
+        versionCodeType 'AUTO_INCREMENT_ONE_STEP'
+        dependsOnTasks 'release'
+    }
+    outputOptions {
+        renameOutput true
+        nameFormat '${appName}-${buildType}-${versionName}'
+    }
+}
 
 android {
     compileSdkVersion 29
+    flavorDimensions "appModule"
 
     defaultConfig {
         applicationId "com.mhst.padc_movie_app"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode appVersionCode
+        versionName appVersionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -30,6 +57,19 @@ android {
 
         }
     }
+
+    productFlavors {
+            development {
+                applicationIdSuffix ".dev"
+                dimension "appModule"
+                manifestPlaceholders = [appName : "@string/app_name_dev"]
+            }
+            production {
+                applicationIdSuffix ".prod"
+                dimension "appModule"
+                manifestPlaceholders = [appName : "@string/app_name_prod"]
+            }
+        }
 
 }
 

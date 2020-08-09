@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.actor_viewpod.view.*
 /**
  * Created by Moe Htet on 31,July,2020
  */
-class ActorViewholder(val itemView: View,val favDelegate: FavDelegate) : BaseViewHolder<PersonVO>(itemView) {
+class ActorViewholder(itemView: View,val favDelegate: FavDelegate) : BaseViewHolder<PersonVO>(itemView) {
     override fun bindData(data: PersonVO) {
         Glide.with(itemView.context).load("$next_lvl_url${data.profilePath}")
             .error(R.drawable.avatar_placeholder)

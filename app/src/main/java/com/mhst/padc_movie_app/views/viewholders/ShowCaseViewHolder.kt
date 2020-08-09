@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.showcase_viewholder.view.*
 /**
  * Created by Moe Htet on 02,August,2020
  */
-class ShowCaseViewHolder(val itemView: View,val delegate: TapVideo) : BaseViewHolder<MovieVO>(itemView) {
+class ShowCaseViewHolder(itemView: View,val delegate: TapVideo) : BaseViewHolder<MovieVO>(itemView) {
 
     init {
         itemView.setOnClickListener {

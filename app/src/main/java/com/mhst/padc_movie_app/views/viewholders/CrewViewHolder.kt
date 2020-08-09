@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.actor_viewpod.view.*
 /**
  * Created by Moe Htet on 01,August,2020
  */
-class CrewViewHolder(val itemView: View) : BaseViewHolder<CrewVO>(itemView) {
+class CrewViewHolder(itemView: View) : BaseViewHolder<CrewVO>(itemView) {
     override fun bindData(data: CrewVO) {
         Glide.with(itemView.context).load("$next_lvl_url${data.profilePath}")
             .error(R.drawable.avatar_placeholder)
